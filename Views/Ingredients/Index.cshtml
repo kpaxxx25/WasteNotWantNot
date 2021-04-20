@@ -1,0 +1,49 @@
+﻿@model List<WNWN.Models.Ingredients>
+
+<h1>Ingredient List</h1>
+
+<p>
+    <a asp-controller="Ingredients" asp-action="Add">Add Ingredient</a>
+</p>
+
+
+<p>
+    <a asp-controller="Ingredients" asp-action="Delete">Delete Ingredient</a>
+</p>
+
+@if (Model.Count == 0)
+{
+    <p>Your digital pantry is empty.</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Food Group
+            </th>
+            <th>
+                Weight
+            </th>
+            <th>
+                Expiration Date
+            </th>
+        </tr>
+        @foreach (var ing in Model)
+        {
+            <tr>
+                <td>@ing.Id</td>
+                <td>@ing.Name</td>
+                <td>@ing.Group</td>
+                <td>@ing.Weight</td>
+                <td>@ing.ExpirationDate</td>
+            </tr>
+        }
+    </table>
+}
