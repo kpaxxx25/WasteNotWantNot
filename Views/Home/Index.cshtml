@@ -2,9 +2,9 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 @model List<WNWN.Models.Ingredients>
-{
+@{
     ViewData["Title"] = "Home Page";
-
+}
 @if (SignInManager.IsSignedIn(User))
 {
     <!DOCTYPE html>
@@ -35,7 +35,7 @@
         <p>
             <a asp-controller="Ingredients" asp-action="Delete">Delete Ingredient</a>
         </p>
-@*
+
         @if (Model.Count == 0)
         {
             <p>Your digital pantry is empty.</p>
@@ -72,12 +72,11 @@
                 }
             </table>
         }
-*@
+
     </body>
 </html>
 }
 else
 {
-@*Show pictures here.*@ <p>Log in to access your digital pantry. New? Our Register button is up above. All you need is a kitchen scale, your kitchens ingredients, and their expiration dates to keep track of your food to prevent waste.</p>
-}
+<p>Log in to access your digital pantry. New? Our Register button is up above. All you need is a kitchen scale, your kitchens ingredients, and their expiration dates to keep track of your food to prevent waste.</p>
 }

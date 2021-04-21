@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WNWN.Data;
 
-namespace WNWN.Data.Migrations
+namespace WNWN.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210420035628_IngredientDBMigration")]
-    partial class IngredientDBMigration
+    [Migration("20210421111607_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

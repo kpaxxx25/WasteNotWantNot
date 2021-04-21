@@ -12,17 +12,12 @@ namespace WNWN.ViewModels
         [Required(ErrorMessage = " Ingredient name is required.")]
         [StringLength(50, MinimumLength = 1, ErrorMessage = "Name must be between 1 and 50 characters")]
         public string Name { get; set; }
-
         [StringLength(500, ErrorMessage = "Character length is too long!")]
         public FoodGroup Group { get; set; }
-
         [EmailAddress]
         public string ContactEmail { get; set; }
-
         public int Weight { get; set; }
-
         public int ExpirationDate { get; set; }
-
         public List<SelectListItem> Groups { get; set; } = new List<SelectListItem>
         {
             new SelectListItem(FoodGroup.Fruit.ToString(), ((int)FoodGroup.Fruit).ToString()),

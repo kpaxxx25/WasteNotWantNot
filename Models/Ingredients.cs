@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace WNWN.Models
 {
     public class Ingredients
@@ -21,7 +22,6 @@ namespace WNWN.Models
         public string ContactEmail { get; set; }
         public int Weight { get; set; }
         public int ExpirationDate { get; set; }
-
         public Ingredients(string name, FoodGroup group, string contactEmail, int weight, int expirationDate)
         {
             Name = name;
@@ -30,18 +30,15 @@ namespace WNWN.Models
             Weight = weight;
             ExpirationDate = expirationDate;
         }
-
         public override string ToString()
         {
             return Name;
         }
-
         public override bool Equals(object obj)
         {
             return obj is Ingredients @ingredients &&
                 Id == @ingredients.Id;
         }
-
         public override int GetHashCode()
         {
             return HashCode.Combine(Id);
