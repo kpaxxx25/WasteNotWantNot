@@ -10,6 +10,9 @@ namespace WNWN.Models
 {
     public class Ingredients
     {
+        [MaxLength(450)]
+        [Required]
+        public string UserId { get; set; }
         public int Id { get; private set; }
         static private int nextId = 1;
         public Ingredients()
@@ -19,26 +22,31 @@ namespace WNWN.Models
         }
         public string Name { get; set; }
         public FoodGroup Group { get; set; }
-        public string ContactEmail { get; set; }
-        public int Weight { get; set; }
-        public int ExpirationDate { get; set; }
-        public Ingredients(string name, FoodGroup group, string contactEmail, int weight, int expirationDate)
+        public double Weight { get; set; }
+        public Units Unit { get; set; }
+        public DateTime ExpirationDate { get; set; }
+        public DateTime ExpectedDate;
+
+        public Ingredients(string name, Units units, FoodGroup group, double weight, DateTime expirationDate)
         {
             Name = name;
+            Unit = units;
             Group = group;
-            ContactEmail = contactEmail;
             Weight = weight;
             ExpirationDate = expirationDate;
         }
+
         public override string ToString()
         {
             return Name;
         }
+
         public override bool Equals(object obj)
         {
             return obj is Ingredients @ingredients &&
                 Id == @ingredients.Id;
         }
+
         public override int GetHashCode()
         {
             return HashCode.Combine(Id);

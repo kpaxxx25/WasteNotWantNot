@@ -3,6 +3,7 @@ using WNWN.Data;
 using WNWN.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace WNWN.Controllers
 {
@@ -11,7 +12,7 @@ namespace WNWN.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            List<Ingredients> ingredients = new List<Ingredients>(IngredientsData.GetAll());
+            List<Ingredients> ingredients = new List<Ingredients>(IngredientsData.GetAll().Where(x => x.UserId == User.Identity.Name));
 
             return View(ingredients);
         }
@@ -32,9 +33,9 @@ namespace WNWN.Controllers
                 {
                     Name = addIngredientsViewModel.Name,
                     Group = addIngredientsViewModel.Group,
-                    ContactEmail = addIngredientsViewModel.ContactEmail,
                     Weight = addIngredientsViewModel.Weight,
-                    ExpirationDate = addIngredientsViewModel.ExpirationDate
+                    ExpirationDate = addIngredientsViewModel.ExpirationDate,
+                    Unit = addIngredientsViewModel.Units
                 };
 
                 IngredientsData.Add(newIngredients);
