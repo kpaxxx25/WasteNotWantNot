@@ -1,9 +1,0 @@
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "databaseAccounts_1ce73cd7_0ee0_4_231_b9ee_name": {
-            "value": null
-        }
-    }
-}

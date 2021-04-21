@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WNWN.Data;
 
-
 namespace WNWN
 {
     public class Startup
@@ -68,5 +67,23 @@ namespace WNWN
                 endpoints.MapRazorPages();
             });
         }
+/*        public static Microsoft.EntityFrameworkCore.DbContextOptionsBuilder UseCosmos(this Microsoft.EntityFrameworkCore.DbContextOptionsBuilder optionsBuilder, string connectionString, string databaseName, Action<Microsoft.EntityFrameworkCore.Infrastructure.CosmosDbContextOptionsBuilder> cosmosOptionsAction = default);
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseCosmos(
+        "DefaultConnection",
+        databaseName: "wnwnpantry",
+        options =>
+        {
+            options.ConnectionMode(ConnectionMode.Gateway);
+            options.WebProxy(new WebProxy());
+            options.LimitToEndpoint();
+            options.Region(Regions.EastUS2);
+            options.GatewayModeMaxConnectionLimit(32);
+            options.MaxRequestsPerTcpConnection(8);
+            options.MaxTcpConnectionsPerEndpoint(16);
+            options.IdleTcpConnectionTimeout(TimeSpan.FromMinutes(1));
+            options.OpenTcpConnectionTimeout(TimeSpan.FromMinutes(1));
+            options.RequestTimeout(TimeSpan.FromMinutes(1));
+        });*/
     }
 }

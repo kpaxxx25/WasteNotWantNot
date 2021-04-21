@@ -10,7 +10,7 @@ using WNWN.Data;
 namespace WNWN.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210421111607_InitialMigration")]
+    [Migration("20210421130215_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
