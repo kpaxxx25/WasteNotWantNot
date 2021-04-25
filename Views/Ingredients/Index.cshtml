@@ -19,6 +19,18 @@
         tr:nth-child(even) {
             background-color: teal;
         }
+
+        body {
+            background-color: teal;
+        }
+
+        h1 {
+            color: black;
+        }
+
+        p {
+            color: black;
+        }
     </style>
 </head>
 <body>
@@ -55,6 +67,9 @@
                     Weight
                 </th>
                 <th>
+                    Units
+                </th>
+                <th>
                     Expiration Date
                 </th>
             </tr>
@@ -63,8 +78,9 @@
                 <tr>
                     <td>@ing.Id</td>
                     <td>@ing.Name</td>
-                    <td>@ing.Group</td>
+                    <td>@ing.Groups.Name</td>
                     <td>@ing.Weight</td>
+                    <td>@ing.Units.Name</td>
                     <td>@ing.ExpirationDate</td>
                 </tr>
             }

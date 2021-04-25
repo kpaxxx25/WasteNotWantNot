@@ -10,16 +10,31 @@
     <!-- MDB -->
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+@*    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">*@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
     <script>
         $(function () {
             $('#datepicker').datetimepicker();
         });
+@*                @functions{
+                    public string makePlural(double Weight, Units UnitType)
+                    {
+                        if(Weight > .001)
+                        {
+                            string plural = UnitType + "s";
+                            return plural;
+                        }
+                        else
+                        {
+                            return UnitType;
+                        }
+
+
+                    }
+                }
+                @makePlural(Model.Weight, Model.UnitType)*@
     </script>
-}
-
-
+    }
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,48 +44,48 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <style>
+        body {
+            background-color: teal;
+        }
 
+        h1 {
+            color: black;
+        }
+
+        p {
+            color: black;
+        }
+    </style>
     <title>Digital Pantry</title>
 </head>
 <body>
     <h1>Add Ingredient</h1>
-    <script>
-        $(function () {
-            $('#datepicker').datetimepicker();
-        });
-    </script>
 
     <form asp-controller="Ingredients" asp-action="Add" method="post">
         <div class="form-group">
             <label asp-for="Name">Ingredient</label>
-            <input asp-for="Name" />
-            <span asp-validation-for="Name"></span>
+            <input asp-for="Name" asp-validation-for="Name" />
         </div>
         <div class="form-group">
-            <label asp-for="Group">Food Group</label>
-            <select asp-validation-for="Group" asp-items="Model.Groups"></select>
+            <select asp-for="FoodGroupId" asp-items="Model.Groups"></select>
         </div>
         <div class="form-group">
-            <label asp-for="Weight">Weight</label>
             <input asp-for="Weight" />
-            <label asp-for="Unit">Units</label>
-            <select asp-validation-for="Units" asp-items="Model.Unit"></select>
         </div>
         <div class="form-group">
-            <label asp-for="ExpirationDate" class="control-label">Expiration Date</label>
-            <div class='input-group date' id='datepicker'>
-                <input asp-for="ExpirationDate" type="text" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-            <span asp-validation-for="ExpirationDate" class="text-danger"></span>
+            <select asp-for="UnitId" asp-items=Model.Units></select>
+        </div>
+        <div class="form-group">
+            <input asp-for="ExpirationDate" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
         </div>
         <input type="submit" value="Add Ingredient" />
+
     </form>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

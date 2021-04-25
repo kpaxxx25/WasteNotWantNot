@@ -4,22 +4,34 @@ using WNWN.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace WNWN.Controllers
 {
+    [Authorize]
     public class IngredientsController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
+        public IngredientsController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        {
+            _context = context;
+            _userManager = userManager;
+        }
+
         // GET: /<controller>/
         public IActionResult Index()
         {
-            List<Ingredients> ingredients = new List<Ingredients>(IngredientsData.GetAll().Where(x => x.UserId == User.Identity.Name));
+            List<Ingredients> ingredients = new List<Ingredients>(_context.Ingredients.Where(x => x.User.UserName == User.Identity.Name).ToList());
 
             return View(ingredients);
         }
-
+        [HttpGet]
         public IActionResult Add()
         {
-            AddIngredientsViewModel addIngredientsViewModel = new AddIngredientsViewModel();
+            AddIngredientsViewModel addIngredientsViewModel = new AddIngredientsViewModel(_context.Groups.ToList(), _context.Units.ToList());
 
             return View(addIngredientsViewModel);
         }
@@ -29,16 +41,22 @@ namespace WNWN.Controllers
         {
             if (ModelState.IsValid)
             {
+                var groupId = _context.Groups.Find(addIngredientsViewModel.FoodGroupId);
+                var unitId = _context.Units.Find(addIngredientsViewModel.UnitId);
+                var group = _context.Groups.Find(addIngredientsViewModel.Name);
+                var unit = _context.Units.Find(addIngredientsViewModel.Name);
                 Ingredients newIngredients = new Ingredients
                 {
+                    User = _userManager.GetUserAsync(User).Result,
                     Name = addIngredientsViewModel.Name,
-                    Group = addIngredientsViewModel.Group,
+                    Groups = group,
                     Weight = addIngredientsViewModel.Weight,
                     ExpirationDate = addIngredientsViewModel.ExpirationDate,
-                    Unit = addIngredientsViewModel.Units
+                    Units = unit
                 };
 
-                IngredientsData.Add(newIngredients);
+                _context.Ingredients.Add(newIngredients);
+                _context.SaveChanges();
 
                 return Redirect("/Ingredients");
             }
@@ -48,9 +66,9 @@ namespace WNWN.Controllers
 
         public IActionResult Delete()
         {
-            ViewBag.events = IngredientsData.GetAll();
+            List<Ingredients> ingredients = new List<Ingredients>(_context.Ingredients.Where(x => x.User.Id == User.Identity.Name).ToList());
 
-            return View();
+            return View(ingredients);
         }
 
         [HttpPost]
@@ -58,7 +76,8 @@ namespace WNWN.Controllers
         {
             foreach (int ingredientId in ingredientIds)
             {
-                IngredientsData.Remove(ingredientId);
+                var ingredient = _context.Ingredients.Find(ingredientId);
+                _context.Ingredients.Remove(ingredient);
             }
 
             return Redirect("/Ingredients");
