@@ -5,31 +5,31 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    body {
+        background-color: rgb(222,234,237);
+    }
+
+    h1 {
+        color: black;
+    }
+
+    p {
+        color: black;
+    }
+</style>
 @if (SignInManager.IsSignedIn(User))
 {
     <!DOCTYPE html>
     <html>
     <head>
-        <style>
-            body {
-                background-color: teal;
-            }
-
-            h1 {
-                color: black;
-            }
-
-            p {
-                color: black;
-            }
-        </style>
     </head>
     <body>
         <br><br><br>
+
         <p>
             <a asp-controller="Ingredients" asp-action="Add">Add Ingredient</a>
         </p>
-
 
         <p>
             <a asp-controller="Ingredients" asp-action="Delete">Delete Ingredient</a>

@@ -3,9 +3,11 @@
 }
 
 <h1>Delete Ingredient</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
     body {
-        background-color: teal;
+        background-color: rgb(161,187,195);
     }
 
     h1 {
@@ -15,18 +17,59 @@
     p {
         color: black;
     }
-</style>
-<form method="post">
-    @foreach (var ing in ViewBag.ingredients)
-    {
-        <div class="form-group">
-            <label>
-                <span>@ing.Name</span>
-                <input type="checkbox" name="nameIds" value="@ing.Id" class="form-control">
-            </label>
-        </div>
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: thick solid #ddd;
     }
 
-    <input type="submit" value="Delete Selected Ingredients" class="btn btn-danger">
+    th, td {
+        text-align: left;
+        padding: 16px;
+    }
 
-</form>
+    tr:nth-child(even) {
+        background-color: rgb(161,187,195);
+    }
+
+    body {
+        background-color: rgb(161,187,195);
+    }
+
+    h1 {
+        color: black;
+    }
+
+    p {
+        color: black;
+    }
+
+    table {
+        color: rgb(222,234,237);
+    }
+</style>
+
+
+@if (Model.Count == 0)
+{
+    <p>Your digital pantry is empty.</p>
+}
+else
+{
+    <form method="post">
+        @foreach (var ing in Model)
+        {
+            <div class="form-group">
+                <label>
+                    <span>@ing.Name</span>
+                    <input type="checkbox" name="ingredientIds" value="@ing.Id" class="form-control">
+                </label>
+            </div>
+        }
+
+        <input type="submit" value="Delete Selected Ingredients" class="btn btn-danger">
+
+    </form>
+}

@@ -16,23 +16,7 @@
         $(function () {
             $('#datepicker').datetimepicker();
         });
-@*                @functions{
-                    public string makePlural(double Weight, Units UnitType)
-                    {
-                        if(Weight > .001)
-                        {
-                            string plural = UnitType + "s";
-                            return plural;
-                        }
-                        else
-                        {
-                            return UnitType;
-                        }
 
-
-                    }
-                }
-                @makePlural(Model.Weight, Model.UnitType)*@
     </script>
     }
 <!doctype html>
@@ -49,7 +33,7 @@
     <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
     <style>
         body {
-            background-color: teal;
+            background-color: rgb(161,187,195);
         }
 
         h1 {
@@ -71,19 +55,22 @@
             <input asp-for="Name" asp-validation-for="Name" />
         </div>
         <div class="form-group">
+            <label asp-for="Name">Food Group</label>
             <select asp-for="FoodGroupId" asp-items="Model.Groups"></select>
         </div>
         <div class="form-group">
+            <label asp-for="Name">Weight</label>
             <input asp-for="Weight" />
         </div>
         <div class="form-group">
+            <label asp-for="Name">Units</label>
             <select asp-for="UnitId" asp-items=Model.Units></select>
         </div>
         <div class="form-group">
+            <label asp-for="Name">Expiration Date</label>
             <input asp-for="ExpirationDate" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
         </div>
         <input type="submit" value="Add Ingredient" />
-
     </form>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

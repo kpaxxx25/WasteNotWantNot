@@ -15,6 +15,7 @@ namespace WNWN.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
+
         public IngredientsController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
@@ -65,7 +66,9 @@ namespace WNWN.Controllers
 
         public IActionResult Delete()
         {
-            List<Ingredients> ingredients = new List<Ingredients>(_context.Ingredients.Where(x => x.User.Id == User.Identity.Name).ToList());
+            var user = _userManager.GetUserAsync(User).Result;
+            var userId = _userManager.GetUserIdAsync(user).Result;
+            List<Ingredients> ingredients = new List<Ingredients>(_context.Ingredients.Where(x => x.User.Id == userId).ToList());
 
             return View(ingredients);
         }
@@ -77,6 +80,7 @@ namespace WNWN.Controllers
             {
                 var ingredient = _context.Ingredients.Find(ingredientId);
                 _context.Ingredients.Remove(ingredient);
+                _context.SaveChanges();
             }
 
             return Redirect("/Ingredients");
