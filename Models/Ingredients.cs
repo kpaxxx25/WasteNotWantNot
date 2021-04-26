@@ -11,10 +11,10 @@ namespace WNWN.Models
         public int Id { get; set; }
         public IdentityUser User { get; set; }
         public string Name { get; set; }
-        public int FoodGroupId { get; set; }
+        public int GroupsId { get; set; }
         public FoodGroup Groups { get; set; }
         public double Weight { get; set; }
-        public int UnitId { get; set; }
+        public int UnitsId { get; set; }
         public Units Units { get; set; }
         public DateTime ExpirationDate { get; set; }
         public DateTime ExpectedDate;

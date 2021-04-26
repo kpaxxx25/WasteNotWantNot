@@ -41,10 +41,9 @@ namespace WNWN.Controllers
         {
             if (ModelState.IsValid)
             {
-                var groupId = _context.Groups.Find(addIngredientsViewModel.FoodGroupId);
-                var unitId = _context.Units.Find(addIngredientsViewModel.UnitId);
-                var group = _context.Groups.Find(addIngredientsViewModel.Name);
-                var unit = _context.Units.Find(addIngredientsViewModel.Name);
+                var group = _context.Groups.Find(addIngredientsViewModel.FoodGroupId);
+                var unit = _context.Units.Find(addIngredientsViewModel.UnitId);
+
                 Ingredients newIngredients = new Ingredients
                 {
                     User = _userManager.GetUserAsync(User).Result,

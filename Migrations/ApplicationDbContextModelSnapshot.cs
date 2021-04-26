@@ -244,13 +244,16 @@ namespace WNWN.Migrations
                     b.Property<DateTime>("ExpirationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("GroupId")
+                    b.Property<int>("FoodGroupId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UnitId")
+                    b.Property<int>("UnitId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UnitsId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
@@ -261,9 +264,9 @@ namespace WNWN.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GroupId");
+                    b.HasIndex("FoodGroupId");
 
-                    b.HasIndex("UnitId");
+                    b.HasIndex("UnitsId");
 
                     b.HasIndex("UserId");
 
@@ -338,21 +341,23 @@ namespace WNWN.Migrations
 
             modelBuilder.Entity("WNWN.Models.Ingredients", b =>
                 {
-                    b.HasOne("WNWN.Models.FoodGroup", "Group")
+                    b.HasOne("WNWN.Models.FoodGroup", "Groups")
                         .WithMany()
-                        .HasForeignKey("GroupId");
+                        .HasForeignKey("FoodGroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("WNWN.Models.Units", "Unit")
+                    b.HasOne("WNWN.Models.Units", "Units")
                         .WithMany()
-                        .HasForeignKey("UnitId");
+                        .HasForeignKey("UnitsId");
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
 
-                    b.Navigation("Group");
+                    b.Navigation("Groups");
 
-                    b.Navigation("Unit");
+                    b.Navigation("Units");
 
                     b.Navigation("User");
                 });

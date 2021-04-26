@@ -11,7 +11,7 @@ namespace WNWN.ViewModels
         [Required(ErrorMessage = " Ingredient name is required.")]
         [StringLength(50, MinimumLength = 1, ErrorMessage = "Name must be between 1 and 50 characters")]
         public string Name { get; set; }
-        public int IngredientId { get; set; }
+        public int IngredientsId { get; set; }
         public int FoodGroupId { get; set; }
         public int UnitId { get; set; }
         public double Weight { get; set; }

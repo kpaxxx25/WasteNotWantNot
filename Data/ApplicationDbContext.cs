@@ -7,12 +7,11 @@ using Microsoft.AspNetCore.Identity;
 
 namespace WNWN.Data
 {
-    public class ApplicationDbContext : IdentityDbContext/*<Ingredients, IdentityRole<int>, int>*/
+    public class ApplicationDbContext : IdentityDbContext
     {
         public DbSet<Ingredients> Ingredients { get; set; }
         public DbSet<Units> Units { get; set; }
         public DbSet<FoodGroup> Groups { get; set; }
-        /*        public DbSet<Ingredients> UserId { get; set; }*/
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
