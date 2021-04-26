@@ -1,0 +1,24 @@
+Project Outline
+This app allows a user to create an account to input data about all of the items in their kitchen. When recording each food item, it will ask the user for the expiration date and weight of the item. When an expiration date approaches, the user will receive a text message with a warning and a recipe recommendation from a database based upon the other ingredients the user already has available. If there is nothing in the pantry then it will recommend a shopping trip with minimal and cheap ingredients to use up the soon to expire item. This app is for preventing waste.
+Inspiration: Cronometer
+
+1.	User Login
+a) Social Media or Local
+2.	SMS Feature
+a) Phone number needs to be stored to send warning texts
+3.	Recipe API
+a) This will require a bit of coding to only send the user recipes based upon what they own
+4.	Pie Chart
+a) Shows a sort of food pyramid with ratios of each type (fruit, vegetables, grains, etc.)
+5.	Dashboard with list of kitchen items
+a) An option to update the quantity or weight should show on the list dashboard
+
+• A drop-down menu for the type of food it is on the food pyramid when entering it in. 
+• Possibly a Barcode scanner like Cronometer to quickly find the product. 
+• Possibly additional sorting for savory or sweet additions to the recipes based upon their pantry.
+
+Technologies: •C#/.NETCore •EntityFrameworkCore •SQLServer •Bootstrap •Razor (JavaScript, HTML, CSS)
+
+I will have to learn how to implement API’s into a final project. I need to be able to combine Angular and .NET Core with an API. I’ll have to figure out how to make a visual representation of the user’s data to show the user how much of each food group they own. I will need to figure out how to store and use the users phone number for SMS.
+
+Project Tracker: https://trello.com/b/c1auTXJr/waste-not-want-not
