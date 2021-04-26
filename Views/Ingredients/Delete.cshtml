@@ -18,22 +18,6 @@
         color: black;
     }
 
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
-        width: 100%;
-        border: thick solid #ddd;
-    }
-
-    th, td {
-        text-align: left;
-        padding: 16px;
-    }
-
-    tr:nth-child(even) {
-        background-color: rgb(161,187,195);
-    }
-
     body {
         background-color: rgb(161,187,195);
     }
@@ -44,10 +28,6 @@
 
     p {
         color: black;
-    }
-
-    table {
-        color: rgb(222,234,237);
     }
 </style>
 
@@ -61,7 +41,7 @@ else
     <form method="post">
         @foreach (var ing in Model)
         {
-            <div class="form-group">
+            <div class="container">
                 <label>
                     <span>@ing.Name</span>
                     <input type="checkbox" name="ingredientIds" value="@ing.Id" class="form-control">
