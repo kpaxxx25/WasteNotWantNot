@@ -1,9 +1,6 @@
-﻿using WNWN.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using WNWN.ViewModels;
-using Microsoft.AspNetCore.Identity;
+using WNWN.Models;
 
 namespace WNWN.Data
 {
