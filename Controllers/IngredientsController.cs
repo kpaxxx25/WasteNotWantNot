@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace WNWN.Controllers
 {
@@ -24,7 +25,8 @@ namespace WNWN.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            List<Ingredients> ingredients = new List<Ingredients>(_context.Ingredients.Where(x => x.User.UserName == User.Identity.Name).ToList());
+            List<Ingredients> ingredients = new List<Ingredients>(_context.Ingredients.Where(x => x.User.UserName == User.Identity.Name).Include(g => g.Groups).Include(u => u.Units).ToList());
+
 
             return View(ingredients);
         }

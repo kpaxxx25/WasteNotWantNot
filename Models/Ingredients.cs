@@ -6,7 +6,8 @@ using System.ComponentModel.DataAnnotations;
 namespace WNWN.Models
 {
     public class Ingredients
-    {   [Key]
+    {
+        [Key]
         public int Id { get; set; }
         public IdentityUser User { get; set; }
         public string Name { get; set; }
