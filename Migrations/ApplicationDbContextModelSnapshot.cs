@@ -244,16 +244,13 @@ namespace WNWN.Migrations
                     b.Property<DateTime>("ExpirationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("FoodGroupId")
+                    b.Property<int>("GroupsId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UnitId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UnitsId")
+                    b.Property<int>("UnitsId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
@@ -264,7 +261,7 @@ namespace WNWN.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FoodGroupId");
+                    b.HasIndex("GroupsId");
 
                     b.HasIndex("UnitsId");
 
@@ -343,13 +340,15 @@ namespace WNWN.Migrations
                 {
                     b.HasOne("WNWN.Models.FoodGroup", "Groups")
                         .WithMany()
-                        .HasForeignKey("FoodGroupId")
+                        .HasForeignKey("GroupsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WNWN.Models.Units", "Units")
                         .WithMany()
-                        .HasForeignKey("UnitsId");
+                        .HasForeignKey("UnitsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
