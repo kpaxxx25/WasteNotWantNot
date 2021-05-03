@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kirin\\Source\\Repos\\WasteNotWantNot\\WNWN.csproj": {}
+    "C:\\Users\\Kirin\\source\\repos\\WasteNotWantNot\\WNWN.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kirin\\Source\\Repos\\WasteNotWantNot\\WNWN.csproj": {
+    "C:\\Users\\Kirin\\source\\repos\\WasteNotWantNot\\WNWN.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kirin\\Source\\Repos\\WasteNotWantNot\\WNWN.csproj",
+        "projectUniqueName": "C:\\Users\\Kirin\\source\\repos\\WasteNotWantNot\\WNWN.csproj",
         "projectName": "WNWN",
-        "projectPath": "C:\\Users\\Kirin\\Source\\Repos\\WasteNotWantNot\\WNWN.csproj",
+        "projectPath": "C:\\Users\\Kirin\\source\\repos\\WasteNotWantNot\\WNWN.csproj",
         "packagesPath": "C:\\Users\\Kirin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kirin\\Source\\Repos\\WasteNotWantNot\\obj\\",
+        "outputPath": "C:\\Users\\Kirin\\source\\repos\\WasteNotWantNot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kirin\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -5,5 +5,10 @@
         public int Id { get; set; }
         public string Name { get; set; }
 
+
+        public FoodGroup(string name)
+        {
+            Name = name;
+        }
     }
 }

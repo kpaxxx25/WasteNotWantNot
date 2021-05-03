@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KkIdLMwO2H6e6aNO5azPWi652oNRbsForKYswzTjLookLVfz3de1xSTIjr1DXXMhXyuqycJ1iNL6tKO2yS4yQA==",
+  "dgSpecHash": "nbUv4RG7FYNBoRQi8ZpOGujD3nS+YU9TRJ0u6ZzAzfiqQ3WkucHEp54rB8KuJ6whbvpxV0N3vt0dD/qFYdVIRA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kirin\\Source\\Repos\\WasteNotWantNot\\WNWN.csproj",
+  "projectFilePath": "C:\\Users\\Kirin\\source\\repos\\WasteNotWantNot\\WNWN.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kirin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Kirin\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
