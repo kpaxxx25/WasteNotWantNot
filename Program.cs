@@ -20,6 +20,7 @@ namespace WNWN
             {
                 var serviceProvider = scope.ServiceProvider;
                 FoodGroupSeed.Initialize(serviceProvider);
+                SeedUnits.Initialize(serviceProvider);
             }
             host.Run();
         }

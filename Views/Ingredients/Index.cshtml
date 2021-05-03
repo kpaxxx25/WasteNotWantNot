@@ -62,9 +62,6 @@
         <table class="table">
             <tr>
                 <th>
-                    Id
-                </th>
-                <th>
                     Name
                 </th>
                 <th>
@@ -83,7 +80,6 @@
             @foreach (var ing in Model)
             {
                 <tr>
-                    <td>@ing.Id</td>
                     <td>@ing.Name</td>
                     <td>@ing.Groups.Name</td>
                     <td>@ing.Weight</td>
