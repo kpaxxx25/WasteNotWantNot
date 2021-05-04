@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@*@{
+    ViewData["Title"] = "Home Page";
+}*@
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <!DOCTYPE html>
+    <html>
+    <head>
+    </head>
+    <body>
+        <br>
+            <form>
+                <div>
+                    <h3>Please Select Foods You Do Not Wish To Eat.</h3>
+
+                    @foreach (string option in ViewBag.NoIngredientMealPlan)
+                    {
+                        <label><input type="checkbox"> @option</label><br>
+                    }
+                    <input type="submit">
+                </div>
+            </form>
+    </body>
+</html>
+}
+else
+{
+<br>
+<br><p>Log in to access your digital pantry. New? Our Register button is up above. All you need is a kitchen scale, your kitchens ingredients, and their expiration dates to keep track of your food to prevent waste.</p>
+}
