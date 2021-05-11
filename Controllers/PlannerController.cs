@@ -22,8 +22,13 @@ namespace WNWN.Controllers
 
         public IActionResult Index()
         {
-            List<string> FoodList = new List<string> {"Rutabaga", "Avocados"};
+            List<string> FoodList = new List<string> {"Rutabaga", "Avocados", "Seafood", "Spicy",};
             ViewBag.NoIngredientMealPlan = FoodList;
+
+          foreach(string food in FoodList)
+            {
+                _context.SaveChanges();
+            }
             return View();
         }
         // GET: /<controller>/
