@@ -9,27 +9,17 @@ namespace WNWN.Models
 {
     public class NoIngredients
     {
-        [Key]
         public int Id { get; set; }
-        public IdentityUser User { get; set; }
         public string Name { get; set; }
-        public int GroupsId { get; set; }
-        public FoodGroup Groups { get; set; }
+        public List<FoodList> OptionList { get; set; } 
 
-        public override string ToString()
+        public NoIngredients(string name)
         {
-            return Name;
+            Name = name;
         }
-
-        public override bool Equals(object obj)
+        public NoIngredients()
         {
-            return obj is Ingredients @ingredients &&
-                Id == @ingredients.Id;
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Id);
         }
     }
 }
+

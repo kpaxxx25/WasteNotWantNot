@@ -9,6 +9,7 @@ namespace WNWN.Data
         public DbSet<Ingredients> Ingredients { get; set; }
         public DbSet<Units> Units { get; set; }
         public DbSet<FoodGroup> Groups { get; set; }
+        public DbSet<NoIngredients> NoIngredients { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
